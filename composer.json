@@ -1,0 +1,12 @@
+{
+  "name": "sfy/theme",
+  "description": "SiteForYou WordPress theme",
+  "type": "wordpress-theme",
+  "autoload": {
+    "psr-4": {
+      "SFY\\": "inc/Core/",
+      "SFY\\Blocks\\": "inc/Blocks/"
+    }
+  },
+  "require": {}
+}
