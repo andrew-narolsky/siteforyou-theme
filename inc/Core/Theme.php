@@ -2,6 +2,9 @@
 
 namespace SFY\Core;
 
+use SFY\Posts\Person\Person;
+use SFY\Taxonomies\Team;
+
 defined('ABSPATH') || exit;
 
 class Theme
@@ -14,6 +17,10 @@ class Theme
     protected function init_hooks(): void
     {
         add_action('after_setup_theme', [$this, 'setup_theme']);
+
+        add_action('init', [$this, 'register_post_types']);
+        add_action('init', [$this, 'register_taxonomies']);
+
         add_action('wp_enqueue_scripts', [Assets::class, 'enqueue_front']);
         add_action('enqueue_block_editor_assets', [Assets::class, 'enqueue_editor']);
         add_action('acf/init', [Blocks::class, 'register_all']);
@@ -27,5 +34,27 @@ class Theme
 
         add_theme_support('editor-styles');
         add_editor_style('/assets/dist/blocks.min.css');
+    }
+
+    public function register_post_types(): void
+    {
+        $postTypes = [
+            Person::class,
+        ];
+
+        foreach ($postTypes as $postType) {
+            $postType::register();
+        }
+    }
+
+    public function register_taxonomies(): void
+    {
+        $taxonomies = [
+            Team::class,
+        ];
+
+        foreach ($taxonomies as $taxonomy) {
+            $taxonomy::register();
+        }
     }
 }
