@@ -1,6 +1,6 @@
 <?php
 
-namespace SFY;
+namespace SFY\Core;
 
 use SFY\Blocks\BlockInterface;
 

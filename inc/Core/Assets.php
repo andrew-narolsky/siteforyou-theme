@@ -1,6 +1,6 @@
 <?php
 
-namespace SFY;
+namespace SFY\Core;
 
 defined('ABSPATH') || exit;
 

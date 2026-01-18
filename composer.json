@@ -4,8 +4,7 @@
   "type": "wordpress-theme",
   "autoload": {
     "psr-4": {
-      "SFY\\": "inc/Core/",
-      "SFY\\Blocks\\": "inc/Blocks/"
+      "SFY\\": "inc/"
     }
   },
   "require": {}
